@@ -1,7 +1,5 @@
 # wefit
 ## Desafio de Estruturação de Projeto React Native + TypeScript + styled-components
-### Figma
-https://www.figma.com/file/TETzIuf8UnkRGWSyxvPigc/Teste-Android-WeFit---2022?node-id=0%3A1
 
 ### Integração
 Utilizar o endpoint https://api.github.com/users/[Usuário]/repos para integrar e alimentar os dados conforme o layout.
