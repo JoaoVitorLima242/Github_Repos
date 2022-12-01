@@ -2,6 +2,7 @@ import { FlatList, View } from 'react-native'
 
 // Types
 import { IRepo } from '../../../types/repo'
+import RepoCard from '../Card'
 
 interface MyProps {
   repos: IRepo[]
@@ -14,7 +15,7 @@ const ReposList = ({
     data={repos}
     keyExtractor={(item => item.id)}
     renderItem={({ item }) => (
-      <View></View>
+      <RepoCard repo={item}/>
     )}
   />
 )
