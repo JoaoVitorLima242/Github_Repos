@@ -27,5 +27,20 @@ module.exports = {
     'react-native'
   ],
   rules: {
+    'react/react-in-jsx-scope': 'off',
+    indent: [
+      'error',
+      2
+    ],
+    quotes: [
+      'error',
+      'single'
+    ],
+    semi: [
+      'error',
+      'never'
+    ],
+    '@typescript-eslint/explicit-function-return-type': 'off'
   }
+
 }
