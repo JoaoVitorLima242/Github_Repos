@@ -1,5 +1,5 @@
-export const sepateFullName = (full_name: string) => {
-  const strArr = full_name.split('/')
+export const sepateFullName = (fullName = '') => {
+  const strArr = fullName.split('/')
 
   return {
     authorName: strArr[0],

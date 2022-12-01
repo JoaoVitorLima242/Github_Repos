@@ -9,5 +9,10 @@ declare module 'styled-components' {
       red: string
       blue: string
     }
+    fontFamily: {
+      roboto: string
+      inter: string
+      interBold: string
+    }
   }
 }

@@ -1,4 +1,4 @@
-import styled from 'styled-components/native'
+import styled, { css } from 'styled-components/native'
 
 export const Wrapper = styled.View`
     background: #FFFFFF;
@@ -6,13 +6,24 @@ export const Wrapper = styled.View`
     border-radius: 4px;
     margin: 0 16px 16px;
     padding: 12px 16px;
-`
+    `
 
 export const TitleSection = styled.View`
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     padding-bottom: 16px;
-    border-bottom: 1px solid #DADADA;
+    border-bottom-color: #DADADA;
+    border-bottom-width: 1px;
 `
 
-export const Title = styled.Text`
+export const InfoSection = styled.View`
+    padding-top: 16px;
+`
 
+export const DescriptionText = styled.Text`
+    ${({ theme }) => css`
+        color: ${theme.colors.fontLight};
+        font-family: ${theme.fontFamily.inter}
+    `}
 `

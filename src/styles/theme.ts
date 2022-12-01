@@ -9,5 +9,10 @@ export const defaultTheme: DefaultTheme = {
     yellowLight: '#FAF3DC',
     red: '#F22828',
     blue: '#1976D2'
+  },
+  fontFamily: {
+    roboto: 'Roboto_500Medium',
+    inter: 'Inter_400Regular',
+    interBold: 'Inter_700Bold'
   }
 }

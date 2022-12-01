@@ -6,12 +6,13 @@ export const Wrapper = styled.View`
 export const AuthorName = styled.Text`
     ${({ theme }) => css`
         color: ${theme.colors.font}
+        font-family: ${theme.fontFamily.inter};
     `}
 `
 
 export const RepoName = styled.Text`
 ${({ theme }) => css`
         color: ${theme.colors.font}
-        font-weight: 700;
+        font-family: ${theme.fontFamily.interBold};
     `}
 `

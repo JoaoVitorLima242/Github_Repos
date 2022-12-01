@@ -2,11 +2,11 @@ import { sepateFullName } from '../../../helpers/string'
 import * as S from './styles'
 
 interface MyProps {
-  full_name: string
+  fullName: string
 }
 
-const Title = ({ full_name }: MyProps) => {
-  const { authorName, repoName } = sepateFullName(full_name)
+const Title = ({ fullName }: MyProps) => {
+  const { authorName, repoName } = sepateFullName(fullName)
   return (
     <S.Wrapper>
       <S.AuthorName>{authorName}/</S.AuthorName>
