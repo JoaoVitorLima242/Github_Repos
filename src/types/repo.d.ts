@@ -1,4 +1,4 @@
-export interface TRepo {
+export interface IRepo {
   id: string
   full_name: string
   description: string
