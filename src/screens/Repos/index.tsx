@@ -1,11 +1,12 @@
-import { View } from 'react-native'
+import { useContext } from 'react'
+
+import ReposList from '../../components/Repos/List'
+import RepoContext from '../../contexts/Repos'
 
 const ReposScreen = () => {
-  return (
-    <View>
+  const { repos } = useContext(RepoContext)
 
-    </View>
-  )
+  return <ReposList repos={repos}/>
 }
 
 export default ReposScreen

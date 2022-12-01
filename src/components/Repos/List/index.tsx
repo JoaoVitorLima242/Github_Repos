@@ -1,9 +1,19 @@
 import { FlatList, View } from 'react-native'
 
-const ReposList = () => (
+// Types
+import { IRepo } from '../../../types/repo'
+
+interface MyProps {
+  repos: IRepo[]
+}
+
+const ReposList = ({
+  repos
+}: MyProps) => (
   <FlatList
-    data={[]}
-    renderItem={() => (
+    data={repos}
+    keyExtractor={(item => item.id)}
+    renderItem={({ item }) => (
       <View></View>
     )}
   />
