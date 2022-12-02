@@ -4,7 +4,7 @@ import { ReactNode } from 'react'
 import { IRepo } from '../../types/repo'
 
 export interface IRepoContext {
-  repos: IRepo[]
+  favorites: IRepo[]
 }
 
 export interface IRepoContextProvider {

@@ -1,10 +1,23 @@
-import { useContext } from 'react'
+import { useEffect, useState } from 'react'
 
 import ReposList from '../../components/Repos/List'
-import RepoContext from '../../contexts/Repos'
+import api from '../../services'
+import { IRepo } from '../../types/repo'
 
 const ReposScreen = () => {
-  const { repos } = useContext(RepoContext)
+  const [repos, setRepos] = useState<IRepo[]>([])
+
+  useEffect(() => {
+    const fetchRepos = async () => {
+      api.get<IRepo[]>('JoaoVitorLima242/repos')
+        .then(({ data }) => setRepos(data))
+        .catch(() => {
+          console.log('TODO')
+        })
+    }
+
+    fetchRepos()
+  }, [])
 
   return <ReposList repos={repos}/>
 }
