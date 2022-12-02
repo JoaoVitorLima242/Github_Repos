@@ -1,4 +1,5 @@
 import { Ionicons } from '@expo/vector-icons'
+import { GestureResponderEvent } from 'react-native'
 
 // Styles
 import * as S from './styles'
@@ -9,7 +10,9 @@ interface Props {
   color: string
   icon?: keyof typeof Ionicons.glyphMap
   text: string
+  textSize?: number
   iconSide?: 'left' | 'right'
+  onPress?: ((event: GestureResponderEvent) => void)
 }
 
 const Button = ({
@@ -18,7 +21,9 @@ const Button = ({
   color,
   icon,
   text,
-  iconSide = 'left'
+  iconSide = 'left',
+  textSize,
+  onPress
 }: Props) => {
   return (
     <S.Wrapper
@@ -27,9 +32,10 @@ const Button = ({
       outline={outline}
       color={color}
       iconSide={iconSide}
+      onPress={onPress}
     >
       {!!icon && <Ionicons size={20} name={icon} color={color}/>}
-      <S.Text iconSide={iconSide} color={color}>{text}</S.Text>
+      <S.Text iconSide={iconSide} color={color} textSize={textSize}>{text}</S.Text>
     </S.Wrapper>
   )
 }

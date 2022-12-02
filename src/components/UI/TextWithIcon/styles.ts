@@ -1,6 +1,10 @@
 import styled, { css } from 'styled-components/native'
 
-export const Wrapper = styled.View`
+interface IWrapper {
+  margin?: string
+}
+
+export const Wrapper = styled.View<IWrapper>`
     flex-direction: row;
     align-items: center;
 `

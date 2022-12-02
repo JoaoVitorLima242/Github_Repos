@@ -10,6 +10,7 @@ interface IWrapper {
 interface IText {
   color: string
   iconSide: 'left' | 'right'
+  textSize?: number
 }
 
 const wrapperModifiers = {
@@ -55,11 +56,11 @@ export const Wrapper = styled.TouchableOpacity<IWrapper>`
 `
 
 export const Text = styled.Text<IText>`
-    ${({ theme, color, iconSide }) => css`
+    ${({ theme, color, iconSide, textSize }) => css`
         font-family: ${theme.fontFamily.interBold};
         color: ${color};
-        font-size: 12px;
-
+        
+        font-size: ${textSize ? `${textSize}px` : '12px'};
         ${iconSide && textModifiers.iconSide[iconSide]}
     `}
 `
