@@ -10,6 +10,7 @@ import TextWithIcon from '../../UI/TextWithIcon'
 // Styles
 import * as S from './styles'
 import { defaultTheme } from '../../../styles/theme'
+import { useNavigation } from '@react-navigation/native'
 
 interface MyProps {
   repo: IRepo
@@ -18,19 +19,42 @@ interface MyProps {
 const RepoCard = ({
   repo
 }: MyProps) => {
+  const navigation = useNavigation()
+
   const {
     full_name,
     description,
     stargazers_count,
-    language
+    language,
+    html_url,
+    id,
+    owner
   } = repo
 
   const buttonBackground = defaultTheme.colors.yellowLight
   const favoriteColor = defaultTheme.colors.yellow
   const languageIconColor = defaultTheme.colors.red
 
+  const onPressHandler = () => {
+    navigation.navigate('ReposStack' as never, {
+      screen: 'RepoDetails',
+      params: {
+        full_name,
+        description,
+        stargazers_count,
+        language,
+        html_url,
+        id,
+        owner
+      }
+    } as never)
+  }
+
   return (
-    <S.Wrapper>
+    <S.Wrapper
+      onPress={onPressHandler}
+      activeOpacity={0.7}
+    >
       <S.TitleSection>
         <Title fullName={full_name}/>
         <Image source={require('../../../assets/smallLogo.png')}/>
