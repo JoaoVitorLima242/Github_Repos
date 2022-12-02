@@ -36,18 +36,15 @@ const RepoCard = ({
   const languageIconColor = defaultTheme.colors.red
 
   const onPressHandler = () => {
-    navigation.navigate('ReposStack' as never, {
-      screen: 'RepoDetails',
-      params: {
-        full_name,
-        description,
-        stargazers_count,
-        language,
-        html_url,
-        id,
-        owner
-      }
-    } as never)
+    navigation.navigate('Details', {
+      full_name,
+      description,
+      stargazers_count,
+      language,
+      html_url,
+      id,
+      owner
+    })
   }
 
   return (
