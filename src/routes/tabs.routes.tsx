@@ -14,7 +14,6 @@ const Tabs = () => {
   return (
     <Tab.Navigator
       screenOptions={{
-        title: 'WeFit',
         headerShown: false,
         tabBarStyle: {
           backgroundColor: defaultTheme.colors.white,

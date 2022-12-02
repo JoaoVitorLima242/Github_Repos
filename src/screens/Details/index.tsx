@@ -29,6 +29,7 @@ const DetailsScreen = () => {
   const favoriteButtonBackground = defaultTheme.colors.yellow
   const favoriteColor = defaultTheme.colors.font
   const favoriteText = 'Favoritar'
+  const favoriteIcon = 'star'
 
   const goToPageHandler = () => {
     Linking.openURL(html_url)
@@ -62,7 +63,7 @@ const DetailsScreen = () => {
           textSize={15}
         />
         <Button
-          icon='link'
+          icon={favoriteIcon}
           text={favoriteText}
           color={favoriteColor}
           backgroundColor={favoriteButtonBackground}
