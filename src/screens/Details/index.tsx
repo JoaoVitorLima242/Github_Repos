@@ -36,7 +36,7 @@ const DetailsScreen = ({ route, navigation }: Props) => {
     Linking.openURL(html_url)
   }
 
-  const favoriteButtonHandler = async () => {
+  const favoriteButtonHandler = () => {
     const repo = route.params
     addToFavoritesHandler(repo)
   }
