@@ -47,7 +47,8 @@ module.exports = {
     ],
     '@typescript-eslint/naming-convention': 'off',
     '@typescript-eslint/strict-boolean-expressions': 'off',
-    '@typescript-eslint/no-namespace': 'off'
+    '@typescript-eslint/no-namespace': 'off',
+    '@typescript-eslint/no-non-null-assertion': 'off'
   }
 
 }

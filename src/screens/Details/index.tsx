@@ -1,27 +1,28 @@
-import { useRoute } from '@react-navigation/native'
 import { Linking } from 'react-native'
+import { StackScreenProps } from '@react-navigation/stack'
 
 // Components
 import Title from '../../components/Repos/Title'
 import TextWithIcon from '../../components/UI/TextWithIcon'
-// Types
-import { IRepo } from '../../types/repo'
 // Styles
 import { defaultTheme } from '../../styles/theme'
 import * as S from './styles'
 import Button from '../../components/UI/Button'
+import { useContext } from 'react'
+import RepoContext from '../../contexts/Repos'
+import { RootStackParamList } from '../../types/routes'
 
-interface Router extends IRepo {}
+type Props = StackScreenProps<RootStackParamList, 'Details'>
 
-const DetailsScreen = () => {
-  const router = useRoute()
+const DetailsScreen = ({ route, navigation }: Props) => {
+  const { addToFavoritesHandler } = useContext(RepoContext)
 
   const {
     description,
     full_name,
     language,
     html_url
-  } = router.params as Router
+  } = route.params
 
   const languageColor = defaultTheme.colors.red
   const linkButtonColor = defaultTheme.colors.blue
@@ -35,8 +36,9 @@ const DetailsScreen = () => {
     Linking.openURL(html_url)
   }
 
-  const favoriteButtonHandler = () => {
-    // TODO
+  const favoriteButtonHandler = async () => {
+    const repo = route.params
+    addToFavoritesHandler(repo)
   }
 
   return (

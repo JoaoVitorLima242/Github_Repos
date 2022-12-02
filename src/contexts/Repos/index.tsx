@@ -1,7 +1,6 @@
-import { createContext, useState } from 'react'
+import AsyncStorage from '@react-native-async-storage/async-storage'
+import { createContext, useEffect, useState } from 'react'
 
-// Services
-import api from '../../services'
 // Types
 import { IRepo } from '../../types/repo'
 import { IRepoContext, IRepoContextProvider } from './types'
@@ -11,10 +10,27 @@ export const RepoContext = createContext({} as IRepoContext)
 export const RepoContextProvider = ({ children }: IRepoContextProvider) => {
   const [favorites, setFavorites] = useState<IRepo[]>([])
 
-  const addToFavoritesHandler = () => {}
+  useEffect(() => {
+    const fetchFavorites = async () => {
+      const favorites = await AsyncStorage.getItem('favorites')
+      const parsedFavorites = JSON.parse(favorites!) || []
+
+      setFavorites(parsedFavorites)
+    }
+
+    fetchFavorites()
+  }, [])
+
+  const addToFavoritesHandler = (repo: IRepo) => {
+    const newFavorites = [repo, ...favorites]
+
+    setFavorites(newFavorites)
+    AsyncStorage.setItem('favorites', JSON.stringify(newFavorites))
+  }
 
   const values = {
-    favorites
+    favorites,
+    addToFavoritesHandler
   }
 
   return (

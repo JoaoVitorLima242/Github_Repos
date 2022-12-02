@@ -11,15 +11,20 @@ import TextWithIcon from '../../UI/TextWithIcon'
 import * as S from './styles'
 import { defaultTheme } from '../../../styles/theme'
 import { useNavigation } from '@react-navigation/native'
+import { useContext } from 'react'
+import RepoContext from '../../../contexts/Repos'
 
 interface MyProps {
   repo: IRepo
+  isFavorite?: boolean
 }
 
 const RepoCard = ({
-  repo
+  repo,
+  isFavorite
 }: MyProps) => {
   const navigation = useNavigation()
+  const { addToFavoritesHandler } = useContext(RepoContext)
 
   const {
     full_name,
@@ -35,7 +40,7 @@ const RepoCard = ({
   const favoriteColor = defaultTheme.colors.yellow
   const languageIconColor = defaultTheme.colors.red
 
-  const onPressHandler = () => {
+  const onPressWrapperHandler = () => {
     navigation.navigate('Details', {
       full_name,
       description,
@@ -47,9 +52,13 @@ const RepoCard = ({
     })
   }
 
+  const onFavoriteHandler = () => {
+    addToFavoritesHandler(repo)
+  }
+
   return (
     <S.Wrapper
-      onPress={onPressHandler}
+      onPress={onPressWrapperHandler}
       activeOpacity={0.7}
     >
       <S.TitleSection>
@@ -62,12 +71,17 @@ const RepoCard = ({
         </S.InfoSection>
       }
       <S.FooterSection>
-        <Button
-          backgroundColor={buttonBackground}
-          color={favoriteColor}
-          text='Favoritar'
-          icon='star'
-        />
+        {
+          !isFavorite &&
+          <Button
+            backgroundColor={buttonBackground}
+            color={favoriteColor}
+            text='Favoritar'
+            icon='star'
+            onPress={onFavoriteHandler}
+          />
+
+        }
         <TextWithIcon
           icon='star'
           iconColor={favoriteColor}
