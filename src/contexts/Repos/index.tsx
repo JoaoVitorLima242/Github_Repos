@@ -28,9 +28,17 @@ export const RepoContextProvider = ({ children }: IRepoContextProvider) => {
     AsyncStorage.setItem('favorites', JSON.stringify(newFavorites))
   }
 
+  const removeFromFavoritesHandler = (repo: IRepo) => {
+    const newFavorites = favorites.filter(prevRepo => prevRepo.id !== repo.id)
+
+    setFavorites(newFavorites)
+    AsyncStorage.setItem('favorites', JSON.stringify(newFavorites))
+  }
+
   const values = {
     favorites,
-    addToFavoritesHandler
+    addToFavoritesHandler,
+    removeFromFavoritesHandler
   }
 
   return (

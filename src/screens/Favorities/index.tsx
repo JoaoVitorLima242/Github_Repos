@@ -14,7 +14,7 @@ const FavoritesScreen = () => {
     />
   }
 
-  return <ReposList repos={favorites} isFavorite/>
+  return <ReposList repos={favorites} />
 }
 
 export default FavoritesScreen

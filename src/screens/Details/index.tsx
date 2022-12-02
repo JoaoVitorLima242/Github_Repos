@@ -8,14 +8,23 @@ import TextWithIcon from '../../components/UI/TextWithIcon'
 import { defaultTheme } from '../../styles/theme'
 import * as S from './styles'
 import Button from '../../components/UI/Button'
-import { useContext } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import RepoContext from '../../contexts/Repos'
 import { RootStackParamList } from '../../types/routes'
 
 type Props = StackScreenProps<RootStackParamList, 'Details'>
 
 const DetailsScreen = ({ route, navigation }: Props) => {
-  const { addToFavoritesHandler } = useContext(RepoContext)
+  const { addToFavoritesHandler, favorites, removeFromFavoritesHandler } = useContext(RepoContext)
+  const [isFavorite, setIsFavorite] = useState(false)
+
+  useEffect(() => {
+    const repo = route.params
+    const index = favorites.findIndex(prevRepo => prevRepo.id === repo.id)
+    const exist = index >= 0
+
+    setIsFavorite(exist)
+  }, [favorites])
 
   const {
     description,
@@ -27,10 +36,10 @@ const DetailsScreen = ({ route, navigation }: Props) => {
   const languageColor = defaultTheme.colors.red
   const linkButtonColor = defaultTheme.colors.blue
 
-  const favoriteButtonBackground = defaultTheme.colors.yellow
   const favoriteColor = defaultTheme.colors.font
-  const favoriteText = 'Favoritar'
-  const favoriteIcon = 'star'
+  const favoriteButtonBackground = isFavorite ? 'transparent' : defaultTheme.colors.yellow
+  const favoriteText = isFavorite ? 'DESFAVORITAR' : 'FAVORITAR'
+  const favoriteIcon = isFavorite ? 'star-outline' : 'star'
 
   const goToPageHandler = () => {
     Linking.openURL(html_url)
@@ -38,7 +47,12 @@ const DetailsScreen = ({ route, navigation }: Props) => {
 
   const favoriteButtonHandler = () => {
     const repo = route.params
-    addToFavoritesHandler(repo)
+
+    if (isFavorite) {
+      removeFromFavoritesHandler(repo)
+    } else {
+      addToFavoritesHandler(repo)
+    }
   }
 
   return (
@@ -71,6 +85,7 @@ const DetailsScreen = ({ route, navigation }: Props) => {
           backgroundColor={favoriteButtonBackground}
           iconSide='right'
           onPress={favoriteButtonHandler}
+          outline={isFavorite}
           textSize={15}
         />
       </S.ButtonsView>

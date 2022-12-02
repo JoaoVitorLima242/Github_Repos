@@ -9,19 +9,17 @@ import * as S from './styles'
 
 interface MyProps {
   repos: IRepo[]
-  isFavorite?: boolean
 }
 
 const ReposList = ({
-  repos,
-  isFavorite
+  repos
 }: MyProps) => (
   <S.CustomFlatlist<ElementType>
     data={repos}
     keyExtractor={((item: IRepo) => item.id)}
     initialNumToRender={7}
     renderItem={({ item }: { item: IRepo }) => (
-      <RepoCard isFavorite={isFavorite} repo={item}/>
+      <RepoCard repo={item}/>
     )}
   />
 )

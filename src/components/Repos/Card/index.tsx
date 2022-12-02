@@ -11,20 +11,27 @@ import TextWithIcon from '../../UI/TextWithIcon'
 import * as S from './styles'
 import { defaultTheme } from '../../../styles/theme'
 import { useNavigation } from '@react-navigation/native'
-import { useContext } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import RepoContext from '../../../contexts/Repos'
 
 interface MyProps {
   repo: IRepo
-  isFavorite?: boolean
 }
 
 const RepoCard = ({
-  repo,
-  isFavorite
+  repo
 }: MyProps) => {
   const navigation = useNavigation()
-  const { addToFavoritesHandler } = useContext(RepoContext)
+  const { addToFavoritesHandler, favorites } = useContext(RepoContext)
+
+  const [isFavorite, setIsFavorite] = useState(false)
+
+  useEffect(() => {
+    const index = favorites.findIndex(prevRepo => prevRepo.id === repo.id)
+    const exist = index >= 0
+
+    setIsFavorite(exist)
+  }, [favorites])
 
   const {
     full_name,
