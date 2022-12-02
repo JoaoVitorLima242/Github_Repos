@@ -45,7 +45,8 @@ module.exports = {
     '@typescript-eslint/no-floating-promises': [
       'off'
     ],
-    '@typescript-eslint/naming-convention': 'off'
+    '@typescript-eslint/naming-convention': 'off',
+    '@typescript-eslint/strict-boolean-expressions': 'off'
   }
 
 }

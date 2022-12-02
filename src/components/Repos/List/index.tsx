@@ -2,6 +2,7 @@ import { FlatList } from 'react-native'
 
 // Types
 import { IRepo } from '../../../types/repo'
+// Components
 import RepoCard from '../Card'
 
 interface MyProps {

@@ -6,7 +6,7 @@ export const Wrapper = styled.View`
     border-radius: 4px;
     margin: 0 16px 16px;
     padding: 12px 16px;
-    `
+`
 
 export const TitleSection = styled.View`
     flex-direction: row;
@@ -26,4 +26,9 @@ export const DescriptionText = styled.Text`
         color: ${theme.colors.fontLight};
         font-family: ${theme.fontFamily.inter}
     `}
+`
+export const FooterSection = styled.View`
+    padding-top: 16px;
+    flex-direction: row;
+    justify-content: space-between;
 `

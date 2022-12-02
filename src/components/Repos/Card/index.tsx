@@ -3,10 +3,13 @@ import { Image } from 'react-native'
 
 // Types
 import { IRepo } from '../../../types/repo'
+import Button from '../../UI/Button'
 // Components
 import Title from '../Title'
 // Styles
 import * as S from './styles'
+import { defaultTheme } from '../../../styles/theme'
+import TextWithIcon from '../../UI/TextWithIcon'
 
 interface MyProps {
   repo: IRepo
@@ -17,8 +20,14 @@ const RepoCard = ({
 }: MyProps) => {
   const {
     full_name,
-    description
+    description,
+    stargazers_count,
+    language
   } = repo
+
+  const buttonBackground = defaultTheme.colors.yellowLight
+  const favoriteColor = defaultTheme.colors.yellow
+  const languageIconColor = defaultTheme.colors.red
 
   return (
     <S.Wrapper>
@@ -26,9 +35,31 @@ const RepoCard = ({
         <Title fullName={full_name}/>
         <Image source={require('../../../assets/smallLogo.png')}/>
       </S.TitleSection>
-      <S.InfoSection>
-        <S.DescriptionText>{description}</S.DescriptionText>
-      </S.InfoSection>
+      {description &&
+        <S.InfoSection>
+          <S.DescriptionText>{description}</S.DescriptionText>
+        </S.InfoSection>
+      }
+      <S.FooterSection>
+        <Button
+          backgroundColor={buttonBackground}
+          color={favoriteColor}
+          text='Favoritar'
+          icon='star'
+        />
+        <TextWithIcon
+          icon='star'
+          iconColor={favoriteColor}
+          iconSize={16.67}
+          text={stargazers_count ?? 0}
+        />
+        <TextWithIcon
+          text={language}
+          iconColor={languageIconColor}
+          iconSize={8}
+          icon='circle'
+        />
+      </S.FooterSection>
     </S.Wrapper>
   )
 }
