@@ -6,10 +6,10 @@ import { IRepo } from '../../../types/repo'
 import Button from '../../UI/Button'
 // Components
 import Title from '../Title'
+import TextWithIcon from '../../UI/TextWithIcon'
 // Styles
 import * as S from './styles'
 import { defaultTheme } from '../../../styles/theme'
-import TextWithIcon from '../../UI/TextWithIcon'
 
 interface MyProps {
   repo: IRepo

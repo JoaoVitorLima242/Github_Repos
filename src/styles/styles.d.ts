@@ -8,6 +8,8 @@ declare module 'styled-components' {
       yellowLight: string
       red: string
       blue: string
+      bgWhite: string
+      white: string
     }
     fontFamily: {
       roboto: string

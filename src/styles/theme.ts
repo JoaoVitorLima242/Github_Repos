@@ -8,7 +8,9 @@ export const defaultTheme: DefaultTheme = {
     yellow: '#FFD02C',
     yellowLight: '#FAF3DC',
     red: '#F22828',
-    blue: '#1976D2'
+    blue: '#1976D2',
+    bgWhite: '#F6F6F5',
+    white: '#fff'
   },
   fontFamily: {
     roboto: 'Roboto_500Medium',

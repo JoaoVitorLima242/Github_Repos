@@ -17,6 +17,7 @@ const ReposList = ({
   <S.CustomFlatlist<ElementType>
     data={repos}
     keyExtractor={((item: IRepo) => item.id)}
+    initialNumToRender={7}
     renderItem={({ item }: { item: IRepo }) => (
       <RepoCard repo={item}/>
     )}
