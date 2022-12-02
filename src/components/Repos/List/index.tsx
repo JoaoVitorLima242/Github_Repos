@@ -1,9 +1,11 @@
-import { FlatList } from 'react-native'
+import { ElementType } from 'react'
 
 // Types
 import { IRepo } from '../../../types/repo'
 // Components
 import RepoCard from '../Card'
+// Styles
+import * as S from './styles'
 
 interface MyProps {
   repos: IRepo[]
@@ -12,10 +14,10 @@ interface MyProps {
 const ReposList = ({
   repos
 }: MyProps) => (
-  <FlatList
+  <S.CustomFlatlist<ElementType>
     data={repos}
-    keyExtractor={(item => item.id)}
-    renderItem={({ item }) => (
+    keyExtractor={((item: IRepo) => item.id)}
+    renderItem={({ item }: { item: IRepo }) => (
       <RepoCard repo={item}/>
     )}
   />
