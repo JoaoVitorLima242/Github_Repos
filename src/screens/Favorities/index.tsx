@@ -1,7 +1,9 @@
 import { useContext } from 'react'
 
+// Components
 import ReposList from '../../components/Repos/List'
 import FallbackView from '../../components/UI/FallbackView'
+// Contexts
 import RepoContext from '../../contexts/Repos'
 
 const FavoritesScreen = () => {

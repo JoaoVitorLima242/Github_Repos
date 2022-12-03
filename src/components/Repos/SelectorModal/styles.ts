@@ -23,7 +23,7 @@ export const Text = styled.Text`
 
 export const InputArea = styled.View`
     background: rgba(0, 0, 0, 0.06);
-    border-radius: 4px 4px 0px 0px;
+    border-radius: 4px;
     border-bottom-color: #00000042;
     border-bottom-width: 1px;
     padding: 8px 12px;

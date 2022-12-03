@@ -6,6 +6,7 @@ import FavoritesScreen from '../screens/Favorities'
 import ReposScreen from '../screens/Repos'
 // Styles
 import { defaultTheme } from '../styles/theme'
+// Types
 import { BottomTabParamList } from '../types/routes'
 
 const Tab = createBottomTabNavigator<BottomTabParamList>()

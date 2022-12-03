@@ -1,3 +1,5 @@
+import { useContext } from 'react'
+import { Platform } from 'react-native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { NavigationContainer } from '@react-navigation/native'
 import { Ionicons } from '@expo/vector-icons'
@@ -10,15 +12,14 @@ import { RootStackParamList } from '../types/routes'
 // Styles
 import { defaultTheme } from '../styles/theme'
 import styled from 'styled-components/native'
-import { TouchableOpacity } from 'react-native-gesture-handler'
-import { useContext } from 'react'
+// Contexts
 import RepoContext from '../contexts/Repos'
 
 const Stack = createStackNavigator<RootStackParamList>()
 
-const Icon = styled(Ionicons)`
+const IconArea = styled.TouchableOpacity`
     margin-right: 19px;
-    `
+  `
 
 const Routes = () => {
   const { selectorModalHandler } = useContext(RepoContext)
@@ -32,12 +33,12 @@ const Routes = () => {
           options={{
             title: 'WeFit',
             headerRight: ({ tintColor }) => (
-              <TouchableOpacity
+              <IconArea
                 activeOpacity={0.7}
                 onPress={() => selectorModalHandler()}
               >
-                <Icon name='settings-sharp' size={20} color={tintColor}/>
-              </TouchableOpacity>
+                <Ionicons name='settings-sharp' size={20} color={tintColor}/>
+              </IconArea>
             )
           }}
         />
@@ -45,7 +46,7 @@ const Routes = () => {
           name='Details'
           component={DetailsScreen}
           options={{
-            title: '',
+            title: Platform.OS === 'android' ? 'Detalhes' : '',
             headerStyle: {
               backgroundColor: defaultTheme.colors.font
             },

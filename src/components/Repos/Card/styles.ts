@@ -2,7 +2,11 @@ import styled, { css } from 'styled-components/native'
 
 export const Wrapper = styled.TouchableOpacity`
     background: #FFFFFF;
-    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.25);
+    shadow-color: #000;
+    shadow-opacity: 0.25;
+    shadow-radius: 10px;
+    shadow-offset: {width: 0px, height: px};
+    elevation: 10;
     border-radius: 4px;
     margin: 0 16px 16px;
     padding: 12px 16px;

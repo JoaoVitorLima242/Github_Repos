@@ -1,6 +1,5 @@
 import { FontAwesome } from '@expo/vector-icons'
 
-// Styles
 import * as S from './styles'
 
 interface Props {

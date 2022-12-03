@@ -1,16 +1,18 @@
+import { useContext, useEffect, useState } from 'react'
 import { Linking } from 'react-native'
 import { StackScreenProps } from '@react-navigation/stack'
 
 // Components
 import Title from '../../components/Repos/Title'
 import TextWithIcon from '../../components/UI/TextWithIcon'
+import Button from '../../components/UI/Button'
 // Styles
 import { defaultTheme } from '../../styles/theme'
 import * as S from './styles'
-import Button from '../../components/UI/Button'
-import { useContext, useEffect, useState } from 'react'
-import RepoContext from '../../contexts/Repos'
+// Types
 import { RootStackParamList } from '../../types/routes'
+// Contexts
+import RepoContext from '../../contexts/Repos'
 
 type Props = StackScreenProps<RootStackParamList, 'Details'>
 
