@@ -1,17 +1,16 @@
-
-import { Image } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
+import { useContext, useEffect, useState } from 'react'
 
 // Types
 import { IRepo } from '../../../types/repo'
-import Button from '../../UI/Button'
 // Components
 import Title from '../Title'
+import Button from '../../UI/Button'
 import TextWithIcon from '../../UI/TextWithIcon'
 // Styles
 import * as S from './styles'
 import { defaultTheme } from '../../../styles/theme'
-import { useNavigation } from '@react-navigation/native'
-import { useContext, useEffect, useState } from 'react'
+// Contexts
 import RepoContext from '../../../contexts/Repos'
 
 interface MyProps {
@@ -70,7 +69,7 @@ const RepoCard = ({
     >
       <S.TitleSection>
         <Title fullName={full_name}/>
-        <Image source={require('../../../assets/smallLogo.png')}/>
+        <S.Image source={owner.avatar_url ? { uri: owner.avatar_url } : require('../../../assets/smallLogo.png')}/>
       </S.TitleSection>
       {description &&
         <S.InfoSection>

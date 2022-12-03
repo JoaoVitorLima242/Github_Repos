@@ -25,6 +25,12 @@ export const InfoSection = styled.View`
     padding-top: 16px;
 `
 
+export const Image = styled.Image`
+    width: 29px;
+    height: 29px;
+    border-radius: 50px;
+`
+
 export const DescriptionText = styled.Text`
     ${({ theme }) => css`
         color: ${theme.colors.fontLight};
