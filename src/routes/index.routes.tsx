@@ -6,6 +6,7 @@ import DetailsScreen from '../screens/Details'
 import Tabs from './tabs.routes'
 // Types
 import { RootStackParamList } from '../types/routes'
+// Styles
 import { defaultTheme } from '../styles/theme'
 
 const Stack = createStackNavigator<RootStackParamList>()
@@ -39,7 +40,6 @@ const Routes = () => {
           }}
         />
       </Stack.Navigator>
-
     </NavigationContainer>
   )
 }

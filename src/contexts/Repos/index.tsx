@@ -9,6 +9,8 @@ export const RepoContext = createContext({} as IRepoContext)
 
 export const RepoContextProvider = ({ children }: IRepoContextProvider) => {
   const [favorites, setFavorites] = useState<IRepo[]>([])
+  const [selectorModal, setSelectorModal] = useState(false)
+  const [usernameSelected, setUsernameSelected] = useState('')
 
   useEffect(() => {
     const fetchFavorites = async () => {
@@ -20,6 +22,14 @@ export const RepoContextProvider = ({ children }: IRepoContextProvider) => {
 
     fetchFavorites()
   }, [])
+
+  const selectorModalHandler = (username?: string) => {
+    if (username) {
+      setUsernameSelected(username)
+    }
+
+    setSelectorModal(!selectorModal)
+  }
 
   const addToFavoritesHandler = (repo: IRepo) => {
     const newFavorites = [repo, ...favorites]
@@ -37,8 +47,11 @@ export const RepoContextProvider = ({ children }: IRepoContextProvider) => {
 
   const values = {
     favorites,
+    selectorModal,
+    usernameSelected,
     addToFavoritesHandler,
-    removeFromFavoritesHandler
+    removeFromFavoritesHandler,
+    selectorModalHandler
   }
 
   return (
