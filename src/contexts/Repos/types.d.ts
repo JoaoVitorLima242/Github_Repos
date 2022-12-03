@@ -9,7 +9,7 @@ export interface IRepoContext {
   usernameSelected: string
   addToFavoritesHandler: (repo: IRepo) => void
   removeFromFavoritesHandler: (repo: IRepo) => void
-  selectorModalHandler: (username: string) => void
+  selectorModalHandler: (username?: string) => void
 }
 
 export interface IRepoContextProvider {

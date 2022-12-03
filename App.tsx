@@ -10,6 +10,8 @@ import { RepoContextProvider } from './src/contexts/Repos'
 import Routes from './src/routes/index.routes'
 // Styles
 import { defaultTheme } from './src/styles/theme'
+import SelectorModal from './src/components/Repos/SelectorModal'
+import { StatusBar } from 'expo-status-bar'
 
 export default function App () {
   const [fontsLoaded] = useFonts({
@@ -23,7 +25,9 @@ export default function App () {
   return (
     <RepoContextProvider>
       <ThemeProvider theme={defaultTheme}>
+        <SelectorModal />
         <Routes />
+        <StatusBar style='dark'/>
       </ThemeProvider>
     </RepoContextProvider>
   )
