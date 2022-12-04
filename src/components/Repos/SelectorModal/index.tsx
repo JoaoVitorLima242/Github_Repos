@@ -47,6 +47,7 @@ const SelectorModal = () => {
     (props: BottomSheetBackdropProps) => (
       <BottomSheetBackdrop
         {...props}
+        onPress={onCloseHandler}
         disappearsOnIndex={0}
         appearsOnIndex={1}
       />
