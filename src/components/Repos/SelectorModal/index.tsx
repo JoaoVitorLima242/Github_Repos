@@ -1,11 +1,10 @@
 import { useContext, useState, useCallback, useMemo, useRef, useEffect } from 'react'
-import BottomSheet from '@gorhom/bottom-sheet'
+import BottomSheet, { BottomSheetBackdrop, BottomSheetBackdropProps } from '@gorhom/bottom-sheet'
 
 // Contexts
 import RepoContext from '../../../contexts/Repos'
 // Components
 import Button from '../../UI/Button'
-import CustomBackdrop from '../../UI/CustomBackdrop'
 // Styles
 import * as S from './styles'
 import { defaultTheme } from '../../../styles/theme'
@@ -44,13 +43,24 @@ const SelectorModal = () => {
     }
   }, [modal])
 
+  const renderBackdrop = useCallback(
+    (props: BottomSheetBackdropProps) => (
+      <BottomSheetBackdrop
+        {...props}
+        disappearsOnIndex={0}
+        appearsOnIndex={1}
+      />
+    ),
+    []
+  )
+
   return (
     <BottomSheet
       ref={bottomSheetRef}
       index={0}
       snapPoints={snapPoints}
       onChange={handleSheetChanges}
-      backdropComponent={CustomBackdrop}
+      backdropComponent={renderBackdrop}
       keyboardBehavior='interactive'
     >
       <S.Content>
