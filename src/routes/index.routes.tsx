@@ -22,7 +22,7 @@ const IconArea = styled.TouchableOpacity`
   `
 
 const Routes = () => {
-  const { selectorModalHandler } = useContext(RepoContext)
+  const { modalHandler } = useContext(RepoContext)
 
   return (
     <NavigationContainer>
@@ -35,7 +35,7 @@ const Routes = () => {
             headerRight: ({ tintColor }) => (
               <IconArea
                 activeOpacity={0.7}
-                onPress={() => selectorModalHandler()}
+                onPress={() => modalHandler(true)}
               >
                 <Ionicons name='settings-sharp' size={20} color={tintColor}/>
               </IconArea>

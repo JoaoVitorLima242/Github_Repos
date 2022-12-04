@@ -5,11 +5,12 @@ import { IRepo } from '../../types/repo'
 
 export interface IRepoContext {
   favorites: IRepo[]
-  selectorModal: boolean
+  modal: boolean
   usernameSelected: string
   addToFavoritesHandler: (repo: IRepo) => void
   removeFromFavoritesHandler: (repo: IRepo) => void
-  selectorModalHandler: (username?: string) => void
+  selectUsernameHandler: (username: string) => void
+  modalHandler: (openOrClose: boolean) => void
 }
 
 export interface IRepoContextProvider {

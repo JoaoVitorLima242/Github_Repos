@@ -1,6 +1,7 @@
+import { BottomSheetTextInput } from '@gorhom/bottom-sheet'
 import styled, { css } from 'styled-components/native'
 
-export const Outsize = styled.Pressable`
+export const Outsize = styled.View`
     flex: 1;
     background-color: #000000AA;
     justify-content: flex-end;
@@ -38,7 +39,7 @@ export const Label = styled.Text`
     `}
 `
 
-export const Input = styled.TextInput`
+export const Input = styled(BottomSheetTextInput)`
     ${({ theme }) => css`
         font-size: 16px;
         font-family: ${theme.fontFamily.roboto};

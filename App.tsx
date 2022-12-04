@@ -1,5 +1,5 @@
 import { ThemeProvider } from 'styled-components'
-import 'react-native-gesture-handler'
+import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import { useFonts, Roboto_500Medium } from '@expo-google-fonts/roboto'
 import { Inter_400Regular, Inter_700Bold } from '@expo-google-fonts/inter'
 import AppLoading from 'expo-app-loading'
@@ -23,12 +23,14 @@ export default function App () {
   if (!fontsLoaded) return <AppLoading />
 
   return (
-    <RepoContextProvider>
-      <ThemeProvider theme={defaultTheme}>
-        <SelectorModal />
-        <Routes />
-        <StatusBar style='dark'/>
-      </ThemeProvider>
-    </RepoContextProvider>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <RepoContextProvider>
+        <ThemeProvider theme={defaultTheme}>
+          <Routes />
+          <SelectorModal />
+          <StatusBar style='dark'/>
+        </ThemeProvider>
+      </RepoContextProvider>
+    </GestureHandlerRootView>
   )
 }
