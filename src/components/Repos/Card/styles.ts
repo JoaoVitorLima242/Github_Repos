@@ -5,7 +5,10 @@ export const Wrapper = styled.TouchableOpacity`
     shadow-color: #000;
     shadow-opacity: 0.25;
     shadow-radius: 10px;
-    shadow-offset: {width: 0px, height: px};
+    shadow-offset: {
+        width: 0px,
+        height: 1px
+    };
     elevation: 10;
     border-radius: 4px;
     margin: 0 16px 16px;
