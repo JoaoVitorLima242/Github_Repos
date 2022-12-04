@@ -5,6 +5,7 @@ import BottomSheet from '@gorhom/bottom-sheet'
 import RepoContext from '../../../contexts/Repos'
 // Components
 import Button from '../../UI/Button'
+import CustomBackdrop from '../../UI/CustomBackdrop'
 // Styles
 import * as S from './styles'
 import { defaultTheme } from '../../../styles/theme'
@@ -49,7 +50,7 @@ const SelectorModal = () => {
       index={0}
       snapPoints={snapPoints}
       onChange={handleSheetChanges}
-      // backdropComponent={CustomBackdrop}
+      backdropComponent={CustomBackdrop}
       keyboardBehavior='interactive'
     >
       <S.Content>
