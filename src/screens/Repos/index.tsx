@@ -13,7 +13,7 @@ import { IRepo } from '../../types/repo'
 const ReposScreen = () => {
   const { usernameSelected } = useContext(RepoContext)
 
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
   const [repos, setRepos] = useState<IRepo[]>([])
 
@@ -33,7 +33,7 @@ const ReposScreen = () => {
         })
     }
 
-    fetchRepos()
+    if (usernameSelected) fetchRepos()
   }, [usernameSelected])
 
   if (loading) return <LoadingOverlay />
