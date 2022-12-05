@@ -28,6 +28,7 @@ const SelectorModal = () => {
   const onCloseHandler = () => {
     modalHandler(false)
     bottomSheetRef.current?.close()
+    Keyboard.dismiss()
   }
 
   const saveHandler = () => {
@@ -76,6 +77,7 @@ const SelectorModal = () => {
             autoCorrect={false}
             onChangeText={(e) => setUsername(e)}
             defaultValue={usernameSelected}
+            onSubmitEditing={saveHandler}
           />
         </S.InputArea>
         <S.ButtonFlex>
