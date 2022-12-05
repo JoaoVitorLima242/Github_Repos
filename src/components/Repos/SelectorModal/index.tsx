@@ -1,5 +1,6 @@
 import { useContext, useState, useCallback, useMemo, useRef, useEffect } from 'react'
 import BottomSheet, { BottomSheetBackdrop, BottomSheetBackdropProps } from '@gorhom/bottom-sheet'
+import { Keyboard } from 'react-native'
 
 // Contexts
 import RepoContext from '../../../contexts/Repos'
@@ -33,6 +34,7 @@ const SelectorModal = () => {
     selectUsernameHandler(username)
     modalHandler(false)
     bottomSheetRef.current?.close()
+    Keyboard.dismiss()
   }
 
   useEffect(() => {
