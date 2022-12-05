@@ -40,7 +40,7 @@ const ReposScreen = () => {
 
   if (!usernameSelected) {
     return <FallbackView
-      title='Selectione um repositório!'
+      title='Selecione um repositório!'
       message='Aperte no botão de engrenagem no canto superior direito para escolher um usuário'
     />
   }
